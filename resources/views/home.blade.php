@@ -8,12 +8,28 @@
     <title>Laravel</title>
 </head>
 
+<style>
+    .trains-container {
+        display: flex;
+
+    }
+
+    .train {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+
 <body>
     <div class="trains-container">
         @foreach ($trains as $train)
-            @if (strtotime($train['Orario partenza']) >= strtotime('now'))
+            @if (strtotime($train['Orario_partenza']) >= strtotime('now'))
                 <div class="train">
-                    <p>{{ $train['Codice treno'] }}</p>
+                    <p>{{ $train['Azienda'] }} </p>
+                    <p> {{ $train['Codice_treno'] }}</p>
+
                 </div>
             @endif
         @endforeach
